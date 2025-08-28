@@ -33,14 +33,16 @@ while game_is_on:
         snake.extend()
         food.refresh()
         scoreboard.score_point()
+        scoreboard.update_scoreboard()
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        scoreboard.game_over()
-        game_is_on = False
+        snake.reset()
+        scoreboard.reset()
     for segment in snake.segments[1:]:
 
         if snake.head.distance(segment) < 10:
-            scoreboard.game_over()
-            game_is_on = False
+            snake.reset()
+            scoreboard.reset()
+
 
 
 
